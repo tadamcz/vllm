@@ -9,11 +9,15 @@ import warnings
 from shutil import which
 from typing import Dict, List
 
-import torch
 from packaging.version import Version, parse
 from setuptools import Extension, find_packages, setup
 from setuptools.command.build_ext import build_ext
-from torch.utils.cpp_extension import CUDA_HOME
+# Hack so that poetry can resolve dependencies without torch being present
+try:
+    import torch
+    from torch.utils.cpp_extension import CUDA_HOME
+except ImportError:
+    pass
 
 
 def load_module_from_path(module_name, path):
