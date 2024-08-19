@@ -24,5 +24,5 @@ pyzmq
 msgspec
 librosa # Required for audio processing
 soundfile # Required for audio processing
-gguf == 0.9.1
+gguf
 importlib_metadata
